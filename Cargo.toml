@@ -1,0 +1,35 @@
+[package]
+name = "fore"
+version = "0.1.0"
+edition = "2025"
+license = "GNU AFFERO GENERAL PUBLIC LICENSE Version 3"
+license-file = "https://github.com/adamth0mps0n/FORE/blob/main/LICENSE"
+description = "Frame of Reference Encryption Scheme (FORE)"
+repository = "https://github.com/adamth0mps0n/FORE"
+homepage = "https://github.com/adamth0mps0n/FORE"
+documentation = "https://github.com/adamth0mps0n/FORE/docs"
+readme = "README.md"
+keywords = ["encryption", "security", "privacy", "p2p"]
+categories = ["cryptography", "network-programming", "concurrency"]
+authors = ["Adam Thompson <adam@moxbox.me>"]
+
+
+
+
+[package]
+name = "fore"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rayon = "1.5"
+num_cpus = "1.13"
+thiserror = "1.0"  # For better error handling
+rand = "0.8"
+
+[features]
+default = ["signature"]
+signature = []  # Make signature plugin optional
+
+[dev-dependencies]
+proptest = "1.0"
