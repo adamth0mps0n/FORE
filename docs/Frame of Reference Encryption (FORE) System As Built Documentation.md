@@ -6,19 +6,6 @@ Designed and developed by Adam Thompson
 
 ## Technical Documentation
 
-
-## Table of Contents
-
-1. [Introduction](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#introduction)
-2. [Core Philosophy](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#core-philosophy)
-3. [Mathematical Foundation](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#mathematical-foundation)
-4. [System Architecture](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#system-architecture)
-5. [Implementation Details](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#implementation-details)
-6. [Security Analysis](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#security-analysis)
-7. [Performance Characteristics](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#performance-characteristics)
-8. [API Reference](http://192.168.1.32:3000/adam/PBI/wiki/Frame-of-Reference-Encryption-%28FORE%29-System-As-Built-Documentation#api-reference)
-
-
 ## Introduction
 
 Frame of Reference Encryption (FORE) represents a paradigm shift in cryptographic systems. Rather than following traditional decrypt-process-encrypt cycles, FORE maintains data in a single encrypted state while enabling operations through frame of reference alignment. This document details the as-built implementation of the FORE system.
@@ -365,31 +352,7 @@ The FORE system implements a flexible plugin architecture that allows for extens
 
 #### Plugin Architecture
 
-1. Feature Flags: Plugins can be conditionally compiled
-    
-    ```rust
-    #[cfg(feature = "signature")]
-    pub use plugins::{RecursiveSignature, SignaturePlugin};
-    ```
-    
-
-1. Trait-Based Interface: Plugins implement specific traits
-    
-2. State Management: Plugins maintain their own state while leveraging core FORE properties
-    
-
-#### Signature Plugin Implementation
-
-The signature plugin demonstrates how to extend FORE while maintaining its security properties:
-
-```rust
-// Signature plugin trait
-pub trait SignaturePlugin {
-    fn create_signature(&self, data: &[u8]) -> Option<RecursiveSignature>;
-    fn verify_signature(&self, data: &[u8], signature: &RecursiveSignature) -> bool;
-}
-```
-
+The system is extensible to accommodate plugins. 
 
 ### Field Operations API
 
